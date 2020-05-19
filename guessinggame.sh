@@ -1,21 +1,29 @@
-#ls | wc -l
-alias contar='ls | wc -l'
-source validate.sh
+#!/usr/bin/env bash
+
+function suma()
+{
+ if [ "$texto" > "$var" ]; then
+echo " tiene que ser menor"
+elif [ "$texto" < "$var" ]; then
+echo "tiene que ser mayor"
+return $suma
+fi
+}
 
 
-var=$(ls | wc -l)
-
-echo "Indique cuantos archivos hay | indicate how many files are there"
-read "texto"
-
+	echo "Indique cuantos archivos hay | indicate how many files are there"
+	read "texto"
+	var=$(ls -al | wc -l)
+	
 while [[ "$texto" != "$var" ]]
 	do
-		echo "Error intente nuevamente | Error, please try again"$validate
-		read "texto"
-	done
+echo "Error intente nuevamente | Error, please try again "suma
+read "texto"
+done
+
 if [ "$texto" = "$var" ]; then
 echo "Respuesta correcta, hay un total de "$var "ficheros"
 echo "Correct answer, congratulations! there are "$var "files in this directory".
-else
-echo "Incorrecto, intente nuevamente | Incorrect, try again please"
+
 fi
+

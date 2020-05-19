@@ -1,6 +1,11 @@
-nano makefile
-        touch README.md
-
-guessinggame.sh: readme.md
-        echo "contains the following number of entries:" > readme.md
-        wc -l guessinggame.sh" >> readme.md
+ 
+README.md: guessinggame.sh
+	echo "#Project: my final  work A Guessing game" > README.md
+	echo "Date and time, fecha y hora"  >> README.md
+	date >> README.md
+	echo  "<br>"
+	echo "<br>"
+	echo  "Number of lines of  code : " >> README.md
+	wc -l guessinggame.sh >> README.md
+clean:
+	rm README.md 
